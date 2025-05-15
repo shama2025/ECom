@@ -1,5 +1,5 @@
 .loginForm {
- display: flex;
+  display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 24px;
@@ -50,26 +50,26 @@
   background-color: #e67610;
 }
 
-.logoText{
-    color: #ff8a14;
+.logoText {
+  color: #ff8a14;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 28px;
   font-weight: bold;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container{
-        display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.signUpLink{
-    text-decoration: none;
-    color: #ffa33f;
+.signUpLink {
+  text-decoration: none;
+  color: #ffa33f;
 }
