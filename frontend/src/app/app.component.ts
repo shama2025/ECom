@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LoginformComponent } from './loginform/loginform.component';
-import { SignupformComponent } from './signupform/signupform.component';
+import { LoginformComponent } from './login-form/loginform.component';
+import { SignupformComponent } from './sign-up-form/signupform.component';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { SignupformComponent } from './signupform/signupform.component';
     NavbarComponent,
     LoginformComponent,
     SignupformComponent,
+    ItemPageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
