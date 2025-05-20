@@ -48,6 +48,8 @@ export class ItemListingFormComponent {
       formData.append('images', file);
     });
 
+    console.log(formData)
+    
     // Call API
   }
 }
