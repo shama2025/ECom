@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginformComponent } from './login-form/loginform.component';
 import { SignupformComponent } from './sign-up-form/signupform.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { ItemListingFormComponent } from './item-listing-form/item-listing-form.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { ItemPageComponent } from './item-page/item-page.component';
     LoginformComponent,
     SignupformComponent,
     ItemPageComponent,
+    ItemListingFormComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

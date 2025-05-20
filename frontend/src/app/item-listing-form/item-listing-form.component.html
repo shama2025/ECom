@@ -1,0 +1,39 @@
+<div class="itemListingContainer">
+  <div class="itemListingForm">
+    <div class="container">
+      <p class="logoText">Logo</p>
+    </div>
+    <div class="credentialInput">
+      <label for="imagesInput" class="fileUploadLabel">Item Images:</label>
+      <input
+        class="fileUploadInput"
+        id="imagesInput"
+        type="file"
+        (change)="onFileSelected($event)"
+        multiple
+        accept=".png, .jpeg"
+      />
+      <span id="fileNameDisplay" class="fileNameDisplay">No file chosen</span>
+    </div>
+    <input
+      class="credentialInput"
+      id="itemName"
+      type="text"
+      placeholder="Item Name"
+      maxlength="25"
+    />
+    <input
+      class="credentialInput"
+      id="longDesc"
+      type="text"
+      placeholder="Item Description"
+    />
+    <input
+      class="submitBtn"
+      id="submit"
+      type="button"
+      value="Submit"
+      (click)="uploadItemListing()"
+    />
+  </div>
+</div>

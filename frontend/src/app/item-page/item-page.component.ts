@@ -13,19 +13,22 @@ export class ItemPageComponent {
   items: ITEM[] = [
     {
       image: 'assets/tmp/inferentialLogo.png',
-      desc: 'High-quality widget',
+      shortDesc: 'High-quality widget',
+      longDesc: 'High-quality widget',
       price: 49.99,
       seller: 'John Smith',
     },
     {
       image: 'assets/tmp/inferentialLogo.png',
-      desc: 'Deluxe gadget',
+      shortDesc: 'High-quality widget',
+      longDesc: 'High-quality widget',
       price: 35.5,
       seller: 'Jane Doe',
     },
     {
       image: 'assets/tmp/inferentialLogo.png',
-      desc: 'Compact toolset',
+      shortDesc: 'High-quality widget',
+      longDesc: 'High-quality widget',
       price: 19.99,
       seller: 'Alex Johnson',
     },
