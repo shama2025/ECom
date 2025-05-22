@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ITEM } from '../ITEM';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-item-page',
   standalone: true,
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './item-page.component.html',
   styleUrl: './item-page.component.css',
 })

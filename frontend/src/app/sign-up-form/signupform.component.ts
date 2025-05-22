@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signupform',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './signupform.component.html',
   styleUrl: './signupform.component.css',
 })
 export class SignupformComponent {
+  fname = '';
+  lname = '';
+  phoneNum = '';
+  email = '';
+  password = '';
+
   /**
    * Signs up a user using given credentials
    */
   signup(): void {
-    const fName = document.getElementById('fnameInput') as HTMLInputElement;
-    const lName = document.getElementById('lnameInput') as HTMLInputElement;
-    const phoneNum = document.getElementById('phoneNum') as HTMLInputElement;
-    const email = document.getElementById('emailInput') as HTMLInputElement;
-    const password = document.getElementById(
-      'passwordInput',
-    ) as HTMLInputElement;
     const formData = new FormData();
 
-    formData.append('firstName', fName.value);
-    formData.append('lastName', lName.value);
-    formData.append('phoneNumber', phoneNum.value);
-    formData.append('email', email.value);
-    formData.append('password', password.value);
+    formData.append('firstName', this.fname);
+    formData.append('lastName', this.lname);
+    formData.append('phoneNumber', this.phoneNum);
+    formData.append('email', this.email);
+    formData.append('password', this.password);
 
     console.log(formData);
 

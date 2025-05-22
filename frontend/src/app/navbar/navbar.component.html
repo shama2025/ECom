@@ -1,11 +1,20 @@
 <div class="navbar">
-  <a class="logo" href="#">Logo</a>
+  <a class="logo" routerLink="['/home']" [routerLinkActive]="['active']"
+    >Logo</a
+  >
   <div class="loginForm">
-    <input class="credentialInput" type="text" id="email" placeholder="Email" />
+    <input
+      class="credentialInput"
+      type="text"
+      id="email"
+      [(ngModel)]="email"
+      placeholder="Email"
+    />
     <input
       class="credentialInput"
       type="password"
       id="password"
+      [(ngModel)]="password"
       placeholder="Password"
     />
     <input

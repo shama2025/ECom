@@ -23,7 +23,12 @@
       (click)="login()"
     />
     <div class="container">
-      <a class="signUpLink" href="#">Sign Up!</a>
+      <a
+        class="signUpLink"
+        [routerLink]="['/signup']"
+        [routerLinkActive]="['active']"
+        >Sign Up!</a
+      >
     </div>
   </div>
 </div>

@@ -11,6 +11,7 @@
         type="file"
         (change)="onFileSelected($event)"
         multiple
+        [(ngModel)]="file"
         accept=".png, .jpeg"
       />
       <span id="fileNameDisplay" class="fileNameDisplay">No file chosen</span>
@@ -19,12 +20,14 @@
       class="credentialInput"
       id="itemName"
       type="text"
+      [(ngModel)]="itemName"
       placeholder="Item Name"
       maxlength="25"
     />
     <input
       class="credentialInput"
       id="longDesc"
+      [(ngModel)]="itemDesc"
       type="text"
       placeholder="Item Description"
     />
