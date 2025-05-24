@@ -44,3 +44,15 @@
   color: #ff8a14;
   font-size: 20px;
 }
+
+.noListingsText {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ff8a14;
+  font-size: 20px;
+}
+
+.noListingsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

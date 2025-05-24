@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../service/auth/auth.service';
 
 @Component({
   selector: 'app-signupform',
@@ -9,6 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './signupform.component.css',
 })
 export class SignupformComponent {
+  constructor(private authService: AuthService) {}
+
   fname = '';
   lname = '';
   phoneNum = '';
@@ -30,5 +33,6 @@ export class SignupformComponent {
     console.log(formData);
 
     // Send to API
+    this.authService.signup(formData);
   }
 }

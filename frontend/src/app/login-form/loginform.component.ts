@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from '../service/auth/auth.service';
 
 @Component({
   selector: 'app-loginform',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './loginform.component.html',
   styleUrl: './loginform.component.css',
 })
 export class LoginformComponent {
+  constructor(private authService: AuthService) {}
+
   /**
    * Attempts to confirm user credentials are accurate
    */
@@ -24,5 +27,6 @@ export class LoginformComponent {
 
     console.log(formData);
     // Send to API
+    this.authService.login(formData);
   }
 }

@@ -6,6 +6,7 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
+import { AuthService } from '../service/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,10 @@ import {
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   password = '';
   email = '';
@@ -39,5 +43,6 @@ export class NavbarComponent {
 
     console.log(formData);
     // Send to API
+    this.authService.login(formData);
   }
 }

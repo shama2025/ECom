@@ -3,6 +3,7 @@ import { ITEM } from '../ITEM';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ListingsService } from '../service/listings/listings.service';
 @Component({
   selector: 'app-item-page',
   standalone: true,
@@ -11,27 +12,19 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './item-page.component.css',
 })
 export class ItemPageComponent {
-  items: ITEM[] = [
-    {
-      image: 'assets/tmp/inferentialLogo.png',
-      shortDesc: 'High-quality widget',
-      longDesc: 'High-quality widget',
-      price: 49.99,
-      seller: 'John Smith',
-    },
-    {
-      image: 'assets/tmp/inferentialLogo.png',
-      shortDesc: 'High-quality widget',
-      longDesc: 'High-quality widget',
-      price: 35.5,
-      seller: 'Jane Doe',
-    },
-    {
-      image: 'assets/tmp/inferentialLogo.png',
-      shortDesc: 'High-quality widget',
-      longDesc: 'High-quality widget',
-      price: 19.99,
-      seller: 'Alex Johnson',
-    },
-  ];
+  ngOnInit(): void {
+    this.loadListings();
+  }
+
+  constructor(private listingService: ListingsService) {}
+  items: ITEM[] = []; // Will need chenged when API is implemented
+
+  loadListings() {
+    this.items = this.listingService.getAll();
+    console.log('Items: ', this.items);
+  }
+
+  getListing(id: number) {
+    this.listingService.getById(id);
+  }
 }

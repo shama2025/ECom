@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ListingsService } from '../service/listings/listings.service';
 
 @Component({
   selector: 'app-item-listing-form',
@@ -9,6 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './item-listing-form.component.css',
 })
 export class ItemListingFormComponent {
+  constructor(private listingService: ListingsService) {}
+
   selectedFiles: File[] = [];
   file: File[] = [];
   fileNameDisplay = '';
@@ -52,5 +55,6 @@ export class ItemListingFormComponent {
     console.log(formData);
 
     // Call API
+    this.listingService.createListing(formData);
   }
 }

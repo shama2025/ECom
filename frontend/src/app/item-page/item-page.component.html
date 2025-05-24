@@ -1,13 +1,31 @@
 <div class="container">
-  <a [routerLink]="['/listing']" [routerLinkActive]="['active']" class="listing"
-    >Add a Listing</a
+  <a
+    [routerLink]="['/listing']"
+    [routerLinkActive]="['active']"
+    class="listing"
   >
-  <div class="containerGrid">
-    <div class="itemContainer" *ngFor="let item of items">
-      <img [src]="item.image" alt="Item Image" class="itemAtribute" />
-      <p class="itemAtribute">Description: {{ item.shortDesc }}</p>
-      <p class="itemAtribute">Price: {{ item.price | currency: "USD" }}</p>
-      <p class="itemAtribute">Seller: {{ item.seller }}</p>
+    Add a Listing
+  </a>
+
+  <ng-container *ngIf="items.length > 0; else noItems">
+    <div class="containerGrid">
+      <div class="itemContainer" *ngFor="let item of items">
+        <img
+          [src]="item.image"
+          alt="Item Image"
+          class="itemAtribute"
+          (click)="getListing(item.id)"
+        />
+        <p class="itemAtribute">Description: {{ item.shortDesc }}</p>
+        <p class="itemAtribute">Price: {{ item.price | currency: "USD" }}</p>
+        <p class="itemAtribute">Seller: {{ item.seller }}</p>
+      </div>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-template #noItems>
+    <div class="noListingsContainer">
+      <p class="noListingsText">No listings found.</p>
+    </div>
+  </ng-template>
 </div>
