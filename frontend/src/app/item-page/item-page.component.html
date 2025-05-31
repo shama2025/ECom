@@ -10,26 +10,27 @@
     </a>
   </div>
 
-  <button (click)="toggleFilters()" class="filter-button">Filter</button>
+  <button (click)="toggleFilters()" class="filterButton">Filter</button>
 
-  <div *ngIf="showFilters" class="filter-container">
+  <div *ngIf="showFilters" class="filterContainer">
     <label class="filterLabel">
       Price:
-      <select (change)="getPriceSort($event)" class="priceSelect">
+      <select (change)="getPriceSort($event)" class="valSelect">
         <option>Price Sort</option>
         <option value="asc">Low to High</option>
         <option value="dsc">High to Low</option>
       </select>
     </label>
     <label class="filterLabel">
-      Category
-      <select (change)="getCategorySort($event)" class="categorySelect">
+      Category:
+      <select (change)="getCategorySort($event)" class="valSelect">
         <option>Category Sort</option>
         <option value="clothes">Clothes</option>
         <option value="tech">Technology</option>
         <option value="school">School</option>
       </select>
     </label>
+    <input type="button" class="refreshButton" value="Refresh" (click)="refreshListings()">
   </div>
 
   <ng-container *ngIf="items.length > 0; else noItems">

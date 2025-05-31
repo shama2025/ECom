@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ItemPageComponent {
   items: ITEM[] = [];
+  resetItems: ITEM[] = [];
   filteredItems: ITEM[] = [];
   showFilters = false;
   category = '';
@@ -28,6 +29,7 @@ export class ItemPageComponent {
 
   loadListings() {
     this.items = this.listingService.getAll();
+    this.resetItems = [...this.items];
     this.filteredItems = [...this.items];
     console.log('Items: ', this.items);
   }
@@ -65,5 +67,10 @@ export class ItemPageComponent {
 
     this.filteredItems = results;
     console.log('Filtered Items: ', this.filteredItems);
+  }
+
+  refreshListings(){
+    this.items = this.resetItems;
+    this.filteredItems = [...this.resetItems];
   }
 }
