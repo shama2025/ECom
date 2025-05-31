@@ -1,15 +1,40 @@
 <div class="container">
-  <a
-    [routerLink]="['/listing']"
-    [routerLinkActive]="['active']"
-    class="listing"
-  >
-    Add a Listing
-  </a>
+
+  <div>
+    <a
+      [routerLink]="['/listing']"
+      [routerLinkActive]="['active']"
+      class="listing"
+    >
+      Add a Listing
+    </a>
+  </div>
+
+  <button (click)="toggleFilters()" class="filter-button">Filter</button>
+
+  <div *ngIf="showFilters" class="filter-container">
+    <label class="filterLabel">
+      Price:
+      <select (change)="getPriceSort($event)" class="priceSelect">
+        <option>Price Sort</option>
+        <option value="asc">Low to High</option>
+        <option value="dsc">High to Low</option>
+      </select>
+    </label>
+    <label class="filterLabel">
+      Category
+      <select (change)="getCategorySort($event)" class="categorySelect">
+        <option>Category Sort</option>
+        <option value="clothes">Clothes</option>
+        <option value="tech">Technology</option>
+        <option value="school">School</option>
+      </select>
+    </label>
+  </div>
 
   <ng-container *ngIf="items.length > 0; else noItems">
     <div class="containerGrid">
-      <div class="itemContainer" *ngFor="let item of items">
+      <div *ngFor="let item of filteredItems" class="itemContainer">
         <img
           [src]="item.image"
           alt="Item Image"

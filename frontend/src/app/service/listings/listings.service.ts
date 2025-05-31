@@ -16,6 +16,7 @@ export class ListingsService {
         longDesc: 'High-quality widget',
         price: 49.99,
         seller: 'John Smith',
+        category: 'school'
       },
       {
         id: 1,
@@ -24,6 +25,7 @@ export class ListingsService {
         longDesc: 'High-quality widget',
         price: 35.5,
         seller: 'Jane Doe',
+        category: 'clothes'
       },
       {
         id: 2,
@@ -32,6 +34,7 @@ export class ListingsService {
         longDesc: 'High-quality widget',
         price: 19.99,
         seller: 'Alex Johnson',
+        category: 'tech'
       },
     ];
   }
