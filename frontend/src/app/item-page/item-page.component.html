@@ -1,5 +1,4 @@
 <div class="container">
-
   <div>
     <a
       [routerLink]="['/listing']"
@@ -30,7 +29,12 @@
         <option value="school">School</option>
       </select>
     </label>
-    <input type="button" class="refreshButton" value="Refresh" (click)="refreshListings()">
+    <input
+      type="button"
+      class="refreshButton"
+      value="Refresh"
+      (click)="refreshListings()"
+    />
   </div>
 
   <ng-container *ngIf="items.length > 0; else noItems">

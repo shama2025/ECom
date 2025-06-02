@@ -56,7 +56,7 @@ export class ItemPageComponent {
     let results = [...this.items];
 
     if (this.category) {
-      results = results.filter(item => item.category === this.category);
+      results = results.filter((item) => item.category === this.category);
     }
 
     if (this.price === 'asc') {
@@ -69,7 +69,7 @@ export class ItemPageComponent {
     console.log('Filtered Items: ', this.filteredItems);
   }
 
-  refreshListings(){
+  refreshListings() {
     this.items = this.resetItems;
     this.filteredItems = [...this.resetItems];
   }

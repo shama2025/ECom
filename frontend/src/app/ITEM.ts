@@ -5,5 +5,5 @@ export interface ITEM {
   longDesc: string; // Long Item Description
   price: number; // Item Cost
   seller: string; // Item Seller
-  category:string // Item Category
+  category: string; // Item Category
 }
