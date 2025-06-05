@@ -11,6 +11,7 @@ export class ListingsService {
     return [
       {
         id: 0,
+        userId: 5,
         image: 'assets/tmp/inferentialLogo.png',
         shortDesc: 'High-quality widget',
         longDesc: 'High-quality widget',
@@ -20,6 +21,7 @@ export class ListingsService {
       },
       {
         id: 1,
+        userId: 5,
         image: 'assets/tmp/inferentialLogo.png',
         shortDesc: 'High-quality widget',
         longDesc: 'High-quality widget',
@@ -29,6 +31,7 @@ export class ListingsService {
       },
       {
         id: 2,
+        userId: 5,
         image: 'assets/tmp/inferentialLogo.png',
         shortDesc: 'High-quality widget',
         longDesc: 'High-quality widget',

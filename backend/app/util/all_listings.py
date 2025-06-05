@@ -1,0 +1,1 @@
+# This file will hold logic for getting all listings
