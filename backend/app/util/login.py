@@ -2,14 +2,17 @@
 
 import sqlite3
 
+
 def login_user(email, password):
     """Checks if user can login"""
     try:
         con = sqlite3.connect("ECOM.db")
         cursor = con.cursor()
 
-        res = cursor.execute("SELECT COUNT(*) FROM users WHERE email = ? AND password = ?",(email,password))
-
+        res = cursor.execute(
+            "SELECT COUNT(*) FROM users WHERE email = ? AND password = ?",
+            (email, password),
+        )
 
         con.commit()
         cursor.close()

@@ -2,6 +2,7 @@
 
 import sqlite3
 
+
 def check_user_email(email):
     """Check the email prior to user creation"""
     try:
@@ -16,7 +17,7 @@ def check_user_email(email):
 
         if res >= 1:
             return {"email_exists": True, "status_code": 401}  # Email Exists (Bad)
-        return {"email_exists": False, "status_code": 200}     # Email doesn't exist (Good)
+        return {"email_exists": False, "status_code": 200}  # Email doesn't exist (Good)
 
     except Exception as e:
         print("Error checking email:", e)
@@ -32,7 +33,7 @@ def create_user(user):
         # INSERT assumes ID is auto-incremented in schema
         cursor.execute(
             "INSERT INTO users (fname, lname, email, password) VALUES (?, ?, ?, ?)",
-            (user.fname, user.lname, user.email, user.password)
+            (user.fname, user.lname, user.email, user.password),
         )
 
         con.commit()

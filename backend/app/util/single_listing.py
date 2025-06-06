@@ -2,6 +2,7 @@
 
 import sqlite3
 
+
 def get_single_listing(id):
     try:
         con = sqlite3.connect("ECOM.db")
