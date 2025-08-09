@@ -1,5 +1,5 @@
 run:
-	flask --app app run
+	mvn clean install -DskipTests
 
-lint:
-	python3 -m black .
+test:
+	mvn spring-boot:run
