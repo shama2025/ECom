@@ -20,9 +20,9 @@ public class Item {
     private String imageUrl;
 
     @Lob
-    private String longDescription;
+    private String long_description;
 
-    private String shortDescription;
+    private String short_description;
 
     private int price;
 
@@ -31,12 +31,12 @@ public class Item {
     private String category;
 
     // Constructors
-    Item(){}
+    public Item(){}
 
     Item(String imageUrl, String longDescription, String shortDescription, int price, String seller, String category) {
         this.imageUrl = imageUrl;
-        this.longDescription = longDescription;
-        this.shortDescription = shortDescription;
+        this.long_description = longDescription;
+        this.short_description = shortDescription;
         this.price = price;
         this.seller = seller;
         this.category = category;
@@ -46,8 +46,8 @@ public class Item {
             String category) {
         this.id = id;
         this.imageUrl = imageUrl;
-        this.longDescription = longDescription;
-        this.shortDescription = shortDescription;
+        this.long_description = longDescription;
+        this.short_description = shortDescription;
         this.price = price;
         this.seller = seller;
         this.category = category;
@@ -67,7 +67,7 @@ public class Item {
     }
 
     public String getLongDescription() {
-        return longDescription;
+        return long_description;
     }
 
     public int getPrice() {
@@ -79,7 +79,7 @@ public class Item {
     }
 
     public String getShortDescription() {
-        return shortDescription;
+        return short_description;
     }
 
     public Account getUser() {
@@ -101,7 +101,7 @@ public class Item {
     }
 
     public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
+        this.long_description = longDescription;
     }
 
     public void setPrice(int price) {
@@ -113,7 +113,7 @@ public class Item {
     }
 
     public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
+        this.short_description = shortDescription;
     }
 
     public void setUserId(Account user) {

@@ -1,6 +1,7 @@
 package com.marcusshaffer.ecom.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,34 +13,34 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String firstName;
+    private String first_name;
 
-    private String lastName;
+    private String last_name;
 
     private String email;
 
     private String password;
 
     // Constructors
-    Account(){}
+    public Account(){}
 
     Account(String email, String password){
         this.email = email;
         this.password = password;
     }
 
-    Account(String firstName,String lastName, String email, String password){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    Account(String first_name,String last_name, String email, String password){
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.password = password;
 
     }
 
-    Account(int id, String firstName,String lastName, String email, String password){
+    Account(int id, String first_name,String last_name, String email, String password){
         this.id = id;  
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.password = password;
     }
@@ -50,11 +51,11 @@ public class Account {
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_name;
     }
 
     public String getLastName() {
-        return lastName;
+        return last_name;
     }
 
     public int getId() {
@@ -70,16 +71,16 @@ public class Account {
         this.email = email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String last_name) {
+        this.last_name = last_name;
     }
 
     public void setPassword(String password) {
