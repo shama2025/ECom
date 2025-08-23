@@ -1,5 +1,7 @@
 package com.marcusshaffer.ecom.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,12 @@ public class EcomController {
     @GetMapping("/accounts/login")
     public ResponseEntity<?> loginUser(@RequestBody Account user){
         return this.accountService.login(user);
+    }
+
+    // GET /accounts/users
+    @GetMapping("/accounts/user")
+    public ResponseEntity<List<Account>> getAllUser(){
+        return this.accountService.getAllUsers();
     }
 
     // Item Endpoints

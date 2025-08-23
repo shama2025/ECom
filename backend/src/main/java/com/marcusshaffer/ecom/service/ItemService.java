@@ -6,18 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.marcusshaffer.ecom.entity.Account;
 import com.marcusshaffer.ecom.entity.Item;
+import com.marcusshaffer.ecom.repository.AccountRepository;
 import com.marcusshaffer.ecom.repository.ItemRepository;
 
 @Service
 public class ItemService {
 
     private ItemRepository itemRepository;
+    private AccountRepository accountRepository;
 
     // Inject into dependency
     @Autowired
-    ItemService(ItemRepository itemRepository){
+    ItemService(ItemRepository itemRepository, AccountRepository accountRepository){
         this.itemRepository = itemRepository;
+        this.accountRepository = accountRepository;
     }
 
     // Methods
@@ -50,14 +54,20 @@ public class ItemService {
      */
     public ResponseEntity<?> createItem(Item item){
         try{
+            System.out.println(item.getShortDescription());
             String imageUrl = item.getImageUrl();
             String longDesc = item.getLongDescription();
             String shortDesc = item.getShortDescription();
             int price = item.getPrice();
             String seller = item.getSeller();
             String category = item.getCategory();
+            Account user = item.getUser();
 
             // Check if price and seller and category and shortDesc aren't null
+
+            if(this.accountRepository.findById(user.getId()).isEmpty()){
+                return ResponseEntity.status(400).body("User does not exist");
+            }
 
             if(price == 0){
                 return ResponseEntity.status(400).body("Price field is blank!");
@@ -83,6 +93,7 @@ public class ItemService {
             newItem.setLongDescription(longDesc);
             newItem.setSeller(seller);
             newItem.setShortDescription(shortDesc);
+            newItem.setUser(user);
 
             Item registerdItem = this.itemRepository.save(newItem);
 

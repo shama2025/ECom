@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
@@ -15,6 +16,7 @@ public class Item {
     private Integer id;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private Account user;
 
     private String imageUrl;
@@ -116,7 +118,7 @@ public class Item {
         this.short_description = shortDescription;
     }
 
-    public void setUserId(Account user) {
+    public void setUser(Account user) {
         this.user = user;
     }
 

@@ -1,3 +1,4 @@
+# Used to create and manage the layout of the database
 import sqlite3
 
 def createUserTable():
@@ -10,7 +11,8 @@ def createUserTable():
             first_name VARCHAR(255),
             last_name VARCHAR(255),
             email VARCHAR(255),
-            password VARCHAR(255)
+            password VARCHAR(255),
+            token VARCHAR(255)
         )
     """)
 
@@ -23,12 +25,12 @@ def createTestDataUserTable():
     cursor = con.cursor()
 
     cursor.execute("""
-        INSERT INTO account (id, first_name, last_name, email, password) VALUES      
-        (1, 'Alice', 'Johnson', 'alice.johnson@example.com', 'password123'),
-        (2, 'Bob', 'Smith', 'bob.smith@example.com', 'letmein'),
-        (3, 'Carol', 'Williams', 'carol.williams@example.com', '123456'),
-        (4, 'David', 'Brown', 'david.brown@example.com', 'admin'),
-        (5, 'Eve', 'Davis', 'eve.davis@example.com', 'qwerty')
+        INSERT INTO account (id, first_name, last_name, email, password, token) VALUES      
+        (1, 'Alice', 'Johnson', 'alice.johnson@example.com', 'password123', ''),
+        (2, 'Bob', 'Smith', 'bob.smith@example.com', 'letmein',''),
+        (3, 'Carol', 'Williams', 'carol.williams@example.com', '123456',''),
+        (4, 'David', 'Brown', 'david.brown@example.com', 'admin',''),
+        (5, 'Eve', 'Davis', 'eve.davis@example.com', 'qwerty','')
     """)
 
     con.commit()
@@ -42,14 +44,14 @@ def createListingTable():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS item (
             id INTEGER PRIMARY KEY,
-            userId INTEGER,
+            user_id INTEGER,
             image_url VARCHAR(255),
             short_description VARCHAR(25),
             long_description TEXT,
             price REAL,
             seller VARCHAR(255),  -- Added seller column
             category VARCHAR(255),  -- Added category column
-            FOREIGN KEY (userId) REFERENCES account(id)  -- Corrected foreign key
+            FOREIGN KEY (user_id) REFERENCES account(id)  -- Corrected foreign key
         )
     """)
 
@@ -62,7 +64,7 @@ def createTestDataListingTable():
     cursor = con.cursor()
 
     cursor.execute("""
-        INSERT INTO item (id, userId, image_url, short_description, long_description, price, seller, category) VALUES
+        INSERT INTO item (id, user_id, image_url, short_description, long_description, price, seller, category) VALUES
         (1, 1, 'img1.jpg', 'Red Cotton Shirt', 'Soft, breathable cotton shirt in red. Perfect for everyday wear.', 19.99, 'Alice', 'Apparel'),
         (2, 2, 'img2.jpg', 'Leather Wallet', 'Genuine leather wallet with multiple compartments for cards and cash.', 34.50, 'Bob', 'Accessories'),
         (3, 3, 'img3.jpg', 'Wireless Mouse', 'Ergonomic wireless mouse with long battery life and smooth tracking.', 25.00, 'Carol', 'Electronics'),

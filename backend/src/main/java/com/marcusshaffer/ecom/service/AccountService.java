@@ -1,5 +1,8 @@
 package com.marcusshaffer.ecom.service;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,6 +41,7 @@ public class AccountService {
             newAccount.setFirstName(firstName);
             newAccount.setLastName(lastName);
             newAccount.setPassword(password);
+            newAccount.setToken(UUID.randomUUID().toString());
 
             // Validation
             if (email == null || email.isBlank()) {
@@ -79,7 +83,8 @@ public class AccountService {
             Account loggedInUser = this.accountRepository.loginUser(email, password);
 
             if(loggedInUser != null){
-                ResponseEntity.ok(loggedInUser);
+                loggedInUser.setToken(UUID.randomUUID().toString());
+                return ResponseEntity.ok(loggedInUser);
             }
 
             return ResponseEntity.status(400).body("Login Unsuccesful");
@@ -88,5 +93,9 @@ public class AccountService {
             return ResponseEntity.status(400).body("An error occurred: " + e.getMessage());
         }
   
+    }
+
+    public ResponseEntity<List<Account>> getAllUsers(){
+        return ResponseEntity.ok(this.accountRepository.findAll());
     }
 }

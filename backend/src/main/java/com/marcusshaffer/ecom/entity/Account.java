@@ -1,6 +1,10 @@
 package com.marcusshaffer.ecom.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +23,11 @@ public class Account {
     private String email;
 
     private String password;
+ 
+    @OneToMany(mappedBy = "user")
+    private List<Item> items;
+
+    private String token;
 
     // Constructors
     public Account(){}
@@ -65,6 +74,10 @@ public class Account {
         return password;
     }
 
+    public String getToken(){
+        return token;
+    }
+
     // Setters
     public void setEmail(String email) {
         this.email = email;
@@ -84,5 +97,9 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setToken(String token){
+        this.token = token;
     }
 }
