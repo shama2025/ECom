@@ -1,52 +1,44 @@
 import { Injectable } from '@angular/core';
-import { ITEM } from '../../ITEM';
+import { BASE_URL } from '../../../assets/env';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class ListingsService {
-  constructor() {}
+  httpClient: HttpClient
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient
+  }
 
-  getAll(): ITEM[] {
+  getAll(): Observable<Object>{
     // Get All listings
-    return [
-      {
-        id: 0,
-        userId: 5,
-        image: 'assets/tmp/inferentialLogo.png',
-        shortDesc: 'High-quality widget',
-        longDesc: 'High-quality widget',
-        price: 49.99,
-        seller: 'John Smith',
-        category: 'school',
-      },
-      {
-        id: 1,
-        userId: 5,
-        image: 'assets/tmp/inferentialLogo.png',
-        shortDesc: 'High-quality widget',
-        longDesc: 'High-quality widget',
-        price: 35.5,
-        seller: 'Jane Doe',
-        category: 'clothes',
-      },
-      {
-        id: 2,
-        userId: 5,
-        image: 'assets/tmp/inferentialLogo.png',
-        shortDesc: 'High-quality widget',
-        longDesc: 'High-quality widget',
-        price: 19.99,
-        seller: 'Alex Johnson',
-        category: 'tech',
-      },
-    ];
+    return this.httpClient.get(`${BASE_URL}/item`)
   }
 
-  getById(listingId: number) {
+  getById(listingId: number): Observable<Object>{
     // Get Individual listing
+   const headers = new HttpHeaders ({
+       'Content-Type': 'application/json',
+      'X-Custom-Header': 'Get-Item-By-Id',
+  })
+  return this.httpClient.get(`${BASE_URL}/item/${listingId}`)
   }
 
-  createListing(listing: FormData) {
+  createListing(listing: FormData): Observable<any> {
     // Create listing
+       const headers = new HttpHeaders ({
+           'Content-Type': 'application/json',
+          'X-Custom-Header': 'my-specific-value',
+      })
+      const body = {
+            'imageUrl':listing.get('images'),
+            'long_descritption':listing.get('desc'),
+            'short_description': listing.get('name'),
+            'price': 0,
+            'seller': '',
+            'category': ''
+      }
+      return this.httpClient.post(`${BASE_URL}\item`,body,{headers: headers})
   }
 }

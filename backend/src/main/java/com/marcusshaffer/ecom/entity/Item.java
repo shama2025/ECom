@@ -18,7 +18,7 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Account user;
-
+    // Will need to update imageUrl to be of List<String>
     private String imageUrl;
 
     @Lob
